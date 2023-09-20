@@ -17,6 +17,6 @@ INSERT INTO users (email, hashed_password) VALUES
     ('test_user2@example.com', 'hashed_password_2');
 
 
-INSERT INTO bookings (room_id, user_id, date_to, date_from, price) VALUES
+INSERT INTO bookings (room_id, user_id, date_from, date_to, price) VALUES
     (1, 1, '2023-09-10', '2023-09-15', 4600),
     (2, 2, '2023-09-12', '2023-09-17', 9500);

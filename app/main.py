@@ -5,6 +5,7 @@ from pydantic import BaseModel
 from typing import Optional
 
 from app.bookings.router import router as router_bookings
+from app.hotels.router import router as router_hotels
 from app.users.router import router as router_users
 
 
@@ -13,6 +14,7 @@ app = FastAPI()
 
 app.include_router(router_users)
 app.include_router(router_bookings)
+app.include_router(router_hotels)
 
 
 class SHotel(BaseModel):
@@ -22,7 +24,7 @@ class SHotel(BaseModel):
 
 
 @dataclass
-class HotelSerachArgs:
+class HotelSearchArgs:
     location: str
     date_from: date
     date_to: date
@@ -30,19 +32,8 @@ class HotelSerachArgs:
     stars: Optional[int] = Query(None, ge=1, le=5)
 
 
-@app.get('/hotels', response_model=list[SHotel])
-def get_hotels(searcj_args: HotelSerachArgs = Depends()
-               ):
+# @app.get('/hotels', response_model=list[SHotel])
+# def get_hotels(search_args: HotelSearchArgs = Depends()
+#                ):
 
-    return searcj_args
-
-
-class SBooking(BaseModel):
-    room_id: int
-    date_from: date
-    date_to: date
-
-
-@app.post('/bookings')
-def add_booking(booking: SBooking):
-    pass
+#     return search_args
