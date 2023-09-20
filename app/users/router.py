@@ -16,8 +16,8 @@ async def register_user(user_data: SUserAuth):
     is_user_exists = await UsersDAO.find_or_none(email=user_data.email)
     if is_user_exists:
         raise UserAlreadyExistsException
-    hasshed_password = get_password_hash(user_data.password)
-    await UsersDAO.add(email=user_data.email, hashed_password=hasshed_password)
+    hashed_password = get_password_hash(user_data.password)
+    await UsersDAO.add(email=user_data.email, hashed_password=hashed_password)
     return status.HTTP_201_CREATED
 
 

@@ -17,3 +17,8 @@ class InvalidAuthCException(BookingsExceptions):
 class UserAlreadyExistsException(BookingsExceptions):
     status_code = status.HTTP_409_CONFLICT
     detail = 'Пользователь уже существует'
+
+
+class RoomAlreadyReservedException(BookingsExceptions):
+    status_code = status.HTTP_409_CONFLICT
+    detail = 'Все номера заняты'
