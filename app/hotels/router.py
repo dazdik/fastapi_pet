@@ -5,10 +5,11 @@ from fastapi import APIRouter, Query
 
 from app.hotels.schemas import SHotelIndividual, SHotelInfo
 from app.hotels.dao import HotelDAO
+from app.hotels.rooms.router import router as router_rooms
 
 
 router = APIRouter(prefix='/hotels', tags=['Отели'])
-
+router.include_router(router_rooms)
 
 @router.get('/{location}')
 async def get_hotels_loc_date(location: str,

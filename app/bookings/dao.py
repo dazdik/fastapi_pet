@@ -5,7 +5,6 @@ from sqlalchemy import and_, delete, func, insert, or_, select
 from app.bookings.models import Bookings
 from app.dao.base import BaseDAO
 from app.hotels.rooms.models import Rooms
-from app.exceptions import BookingNotFoundException
 
 
 class BookingDAO(BaseDAO):
