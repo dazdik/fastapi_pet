@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from datetime import date
-from fastapi import Depends, FastAPI, Query
+from fastapi import FastAPI, Query
 from pydantic import BaseModel
 from typing import Optional
 
